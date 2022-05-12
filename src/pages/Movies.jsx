@@ -2,7 +2,7 @@ import React from 'react';
 import MovieList from '../components/MovieList';
 import axios from 'axios';
 import { useQuery } from 'react-query';
-import { Box } from '@chakra-ui/react';
+import { Center } from '@chakra-ui/react';
 
 const Movies = () => {
   const { isLoading, error, data } = useQuery('movieData', () =>
@@ -19,9 +19,9 @@ const Movies = () => {
   if (error) return `An error has occured ${error.message}`;
   return (
     <>
-      <Box maxW="1440px" mx={12}>
+      <Center>
         <MovieList movies={data} />
-      </Box>
+      </Center>
     </>
   );
 };

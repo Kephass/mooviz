@@ -7,9 +7,9 @@ import {
   Image,
 } from '@chakra-ui/react';
 
-const MovieCard = ({ backdrop, title, release }) => {
+const MovieCard = ({ backdrop, title, release, description }) => {
   return (
-    <Box py={12}>
+    <Box py={12} m="0 auto">
       <Box
         role={'group'}
         p={6}
@@ -53,11 +53,16 @@ const MovieCard = ({ backdrop, title, release }) => {
           />
         </Box>
         <Stack pt={10} align={'center'}>
-          <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
+          <Text
+            color={'gray.500'}
+            fontSize={'sm'}
+            textTransform={'uppercase'}
+            noOfLines={1}
+          >
             {title}
           </Text>
-          <Heading fontSize={'1xl'} fontFamily={'body'} fontWeight={500}>
-            Nice Chair, pink
+          <Heading fontSize="1rem" fontWeight={'bold'} noOfLines={2}>
+            {description}
           </Heading>
           <Stack direction={'row'} align={'center'}>
             <Text color={'gray.900'}>{release}</Text>
