@@ -6,70 +6,76 @@ import {
   Stack,
   Image,
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
 const MovieCard = ({ backdrop, title, release, description }) => {
   return (
-    <Box py={12} m="0 auto">
-      <Box
-        role={'group'}
-        p={6}
-        maxW={'330px'}
-        w={'full'}
-        bg={useColorModeValue('white', 'gray.400')}
-        boxShadow={'2xl'}
-        rounded={'lg'}
-        pos={'relative'}
-        zIndex={1}
-      >
+    <motion.div
+      whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+      whileTap={{ scale: 0.9 }}
+    >
+      <Box py={12} m="0 auto">
         <Box
+          role={'group'}
+          p={6}
+          maxW={'330px'}
+          w={'full'}
+          bg={useColorModeValue('white', 'gray.400')}
+          boxShadow={'2xl'}
           rounded={'lg'}
-          mt={-12}
           pos={'relative'}
-          height={'230px'}
-          _after={{
-            transition: 'all .3s ease',
-            content: '""',
-            w: 'full',
-            h: 'full',
-            pos: 'absolute',
-            top: 5,
-            left: 0,
-            backgroundImage: `url(${backdrop})`,
-            filter: 'blur(15px)',
-            zIndex: -1,
-          }}
-          _groupHover={{
-            _after: {
-              filter: 'blur(20px)',
-            },
-          }}
+          zIndex={1}
         >
-          <Image
+          <Box
             rounded={'lg'}
-            height={230}
-            width={282}
-            objectFit={'cover'}
-            src={backdrop}
-          />
-        </Box>
-        <Stack pt={10} align={'center'}>
-          <Text
-            color={'gray.500'}
-            fontSize={'sm'}
-            textTransform={'uppercase'}
-            noOfLines={1}
+            mt={-12}
+            pos={'relative'}
+            height={'230px'}
+            _after={{
+              transition: 'all .3s ease',
+              content: '""',
+              w: 'full',
+              h: 'full',
+              pos: 'absolute',
+              top: 5,
+              left: 0,
+              backgroundImage: `url(${backdrop})`,
+              filter: 'blur(15px)',
+              zIndex: -1,
+            }}
+            _groupHover={{
+              _after: {
+                filter: 'blur(20px)',
+              },
+            }}
           >
-            {title}
-          </Text>
-          <Heading fontSize="1rem" fontWeight={'bold'} noOfLines={2}>
-            {description}
-          </Heading>
-          <Stack direction={'row'} align={'center'}>
-            <Text color={'gray.900'}>{release}</Text>
+            <Image
+              rounded={'lg'}
+              height={230}
+              width={282}
+              objectFit={'cover'}
+              src={backdrop}
+            />
+          </Box>
+          <Stack pt={10} align={'center'}>
+            <Text
+              color={'gray.500'}
+              fontSize={'sm'}
+              textTransform={'uppercase'}
+              noOfLines={1}
+            >
+              {title}
+            </Text>
+            <Heading fontSize="1rem" fontWeight={'bold'} noOfLines={2}>
+              {description}
+            </Heading>
+            <Stack direction={'row'} align={'center'}>
+              <Text color={'gray.900'}>{release}</Text>
+            </Stack>
           </Stack>
-        </Stack>
+        </Box>
       </Box>
-    </Box>
+    </motion.div>
   );
 };
 
