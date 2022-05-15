@@ -66,7 +66,7 @@ const MovieCard = ({ backdrop, title, release, description }) => {
             >
               {title}
             </Text>
-            <Heading fontSize="1rem" fontWeight={'bold'} noOfLines={2}>
+            <Heading fontSize="1rem" fontWeight={'500'} noOfLines={2}>
               {description}
             </Heading>
             <Stack direction={'row'} align={'center'}>

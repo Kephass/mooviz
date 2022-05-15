@@ -1,12 +1,12 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import MovieCard from './MovieCard';
 
-const MovieList = ({ movies }) => {
+function MovieList({ movies }) {
   return (
     <>
-      <Box my={12}>
+      <Box my={2}>
         <Grid templateColumns="repeat(4, 1fr)" gap={10}>
-          {movies.results.map((movie, i) => (
+          {movies.map((movie, i) => (
             <GridItem key={i}>
               <MovieCard
                 backdrop={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
@@ -20,6 +20,6 @@ const MovieList = ({ movies }) => {
       </Box>
     </>
   );
-};
+}
 
 export default MovieList;

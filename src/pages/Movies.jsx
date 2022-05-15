@@ -1,27 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MovieList from '../components/MovieList';
-import axios from 'axios';
-import { useQuery } from 'react-query';
-import { Center } from '@chakra-ui/react';
+import Filter from '../components/Filter';
+import { Center, VStack } from '@chakra-ui/react';
 
 const Movies = () => {
-  const { isLoading, error, data } = useQuery('movieData', () =>
-    axios
-      .get(
-        'https://api.themoviedb.org/3/movie/popular?api_key=711a927a4d6efa393b4df113190f11fc&language=en-US&page=1'
-      )
-      .then(res => res.data)
-      .then(console.log(data))
-      .catch(error => console.log(error))
-  );
+  const [popular, setPopular] = useState([]);
+  const [filterMovies, setFilterMovies] = useState([]);
+  const [activeGenre, setActiveGenre] = useState();
 
-  if (isLoading) return 'Loading...';
-  if (error) return `An error has occured ${error.message}`;
+  useEffect(() => {
+    fetchPopular();
+  }, []);
+
+  const fetchPopular = async () => {
+    fetch(
+      'https://api.themoviedb.org/3/movie/popular?api_key=711a927a4d6efa393b4df113190f11fc&language=en-US&page=1'
+    )
+      .then(res => res.json())
+      .then(movies => {
+        setPopular(movies.results);
+        setFilterMovies(movies.results);
+      })
+      .catch(err => console.error(err));
+  };
+
   return (
     <>
-      <Center>
-        <MovieList movies={data} />
-      </Center>
+      <VStack my={15}>
+        <Filter
+          popular={popular}
+          activeGenre={activeGenre}
+          filterMovies={filterMovies}
+          setFilterMovies={setFilterMovies}
+          setActiveGenre={setActiveGenre}
+        />
+        <Center>
+          <MovieList movies={filterMovies} />
+        </Center>
+      </VStack>
     </>
   );
 };
