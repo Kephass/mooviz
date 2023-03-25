@@ -1,6 +1,6 @@
 import { Center, VStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { Filter, MovieList } from '../components';
+import { Filter, MovieList } from '../components/movies';
 
 const Movies = () => {
   const [popular, setPopular] = useState([]);

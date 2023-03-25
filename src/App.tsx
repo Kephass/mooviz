@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Header } from './components';
+import { Header } from './components/movies';
 import GiftList from './pages/GiftList';
 import LandingPage from './pages/LandingPage';
 import Movies from './pages/Movies';
