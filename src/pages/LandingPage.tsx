@@ -1,5 +1,4 @@
 import { Box, Code, Grid, Text, VStack } from '@chakra-ui/react';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Logo } from '../Logo';
 
@@ -16,7 +15,6 @@ const LandingPage = () => {
             <Link
               color="teal.500"
               to="https://chakra-ui.com"
-              fontSize="2xl"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -1,5 +1,13 @@
-import { useEffect } from 'react';
 import { Button, Stack } from '@chakra-ui/react';
+import { useEffect } from 'react';
+
+interface FilterProps {
+popular: any;
+activeGenre: any;
+filterMovies: any;
+setFilterMovies: any;
+setActiveGenre: any;
+}
 
 const buttondetails = [
   {
@@ -24,13 +32,13 @@ const buttondetails = [
   },
 ];
 
-function Filter({ popular, activeGenre, setActiveGenre, setFilterMovies }) {
+export function Filter({ popular, activeGenre, setActiveGenre, setFilterMovies }: FilterProps) {
   useEffect(() => {
     if (activeGenre === 0) {
       setFilterMovies(popular);
       return;
     }
-    const filtered = popular.filter(movie =>
+    const filtered = popular.filter((movie: { genre_ids: { includes: (arg0: any) => any; }; }) =>
       movie.genre_ids.includes(activeGenre)
     );
     setFilterMovies(filtered);
@@ -53,5 +61,3 @@ function Filter({ popular, activeGenre, setActiveGenre, setFilterMovies }) {
     </Stack>
   );
 }
-
-export default Filter;

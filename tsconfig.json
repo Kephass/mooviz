@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "declarationMap": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "jsx": "react-jsx",
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "module": "nodenext",
+        "skipLibCheck": true,
+        "strict": true,
+        "target": "es2020"
+    }
+}

@@ -1,14 +1,16 @@
 import {
-  Box,
-  useColorModeValue,
-  Heading,
-  Text,
-  Stack,
-  Image,
+  Box, Heading, Image, Stack, Text, useColorModeValue
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
-const MovieCard = ({ backdrop, title, release, description }) => {
+interface MovieCardProps {
+backdrop: string;
+title: string;
+release: string;
+description: string;
+}
+
+const MovieCard = ({ backdrop, title, release, description }: MovieCardProps) => {
   return (
     <motion.div
       whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
