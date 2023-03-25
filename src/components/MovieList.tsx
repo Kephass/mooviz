@@ -5,7 +5,7 @@ interface MovieListProps {
 movies: any[];
 }
 
-function MovieList({ movies }: MovieListProps) {
+export function MovieList({ movies }: MovieListProps) {
   return (
     <>
       <Box my={2}>
