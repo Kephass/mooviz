@@ -1,6 +1,6 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import { Route, Routes } from 'react-router-dom';
+import { Header } from './components';
+import GiftList from './pages/GiftList';
 import LandingPage from './pages/LandingPage';
 import Movies from './pages/Movies';
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/movies" element={<Movies />} />
+        <Route path="/giftlist" element={<GiftList />} />
       </Routes>
     </>
   );
