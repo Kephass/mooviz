@@ -42,7 +42,7 @@ export function Filter({ popular, activeGenre, setActiveGenre, setFilterMovies }
       movie.genre_ids.includes(activeGenre)
     );
     setFilterMovies(filtered);
-  }, [setFilterMovies, activeGenre]);
+  }, [setFilterMovies, activeGenre, popular]);
 
   return (
     <Stack direction={['column', 'row']} gap={4} marginTop="10">
